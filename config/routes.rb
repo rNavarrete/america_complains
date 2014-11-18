@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get "/" => "home#index"
+  root "home#index"
 
   resources :users
   get "/log-in" => "sessions#new"
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/log-out" => "sessions#destroy", as: :log_out
 
 
-  get '/auth/twitter/callback', to: 'twittersession#create'
+  get '/auth/twitter/callback', to: 'sessions#create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

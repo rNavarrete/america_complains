@@ -32,6 +32,7 @@ gem 'quiet_assets'
 gem 'bootstrap_form'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem "figaro"
 
 group :production do
   gem 'pg'
