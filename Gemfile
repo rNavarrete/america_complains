@@ -33,6 +33,7 @@ gem 'bootstrap_form'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem "figaro"
+gem 'cancancan', '~> 1.9'
 
 group :production do
   gem 'pg'
