@@ -14,7 +14,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <% if !current_user.nil? && current_user.admin? %>
+          <li class="active"><a href="#">Update Database <span class="sr-only">(current)</span></a></li>
+        <% end %>
         <li><a href="/auth/twitter">Sign in with Twitter</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -36,7 +38,22 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Sign Up", new_user_path %></li>
+        <% unless current_user %>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+        <% end %>
+        <% if current_user %>
+          <li>@<%= current_user.name %></li>
+        <% end %>
+        <% unless current_user %>
+        <div class="login_form" id="login-form">
+          <%= form_tag log_in_path do %>
+            <%= text_field_tag :email, nil, placeholder: "Email" %>
+            <%= password_field_tag :password, nil, placeholder: "Password" %>
+            <%= submit_tag value="Sign in", class: "btn btn-default btn-sm", id: "sigin-button" %>
+          <% end %>
+        </div>
+      <% end %>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

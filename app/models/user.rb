@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   def self.authenticate(email, password)
     user = User.where(email: email).first
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
-      session[:user_id] = user.id
+      user
     else
       nil
     end
@@ -29,5 +29,7 @@ class User < ActiveRecord::Base
     user
   end
 
-
+  def admin?
+    self.role == "admin"
+  end
 end

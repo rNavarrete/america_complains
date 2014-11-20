@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117220142) do
+ActiveRecord::Schema.define(version: 20141120195519) do
+
+  create_table "complaints", force: true do |t|
+    t.string   "product"
+    t.string   "sub_product"
+    t.string   "issue"
+    t.string   "sub_issue"
+    t.string   "state"
+    t.integer  "zipcode"
+    t.string   "date_submitted"
+    t.string   "company"
+    t.string   "consumer_disputed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
 
   def new
 
-
   end
 
   def create
@@ -11,25 +10,17 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:notice] = "You have been successfully logged in."
       redirect_to root_path
-    elsif params[:email]
-      if user = User.authenticate(email: params[:email], password: params[:password])
-      flash[:notice] = "You have been successfully logged in."
+    else
+      if user = User.authenticate(params[:email], params[:password])
+        session[:user_id] = user.id
+        flash[:notice] = "You have been logged in."
+        redirect_to root_path
+      else
+        flash[:alert] = "There was a problem logging you in."
+        redirect_to log_in_path
       end
     end
   end
-
-
-
-
-    # user = User.authenticate(email: params[:email], password: params[:password])
-    # if user
-    #   flash[:notice] = "You have been logged in."
-    #   session[:user_id] = user.id
-    #   redirect_to "/"
-    # else
-    #   flash[:alert] = "There was a problem logging you in."
-    #   redirect_to log_in_path
-    # end
 
   def destroy
     session[:user_id] = nil
