@@ -1,0 +1,6 @@
+<h1>Search</h1>
+
+<% @complaints.each do |complaint| %>
+  <li><%= complaint.company %></li>
+  <li><%= complaint.state %></li>
+<% end %>

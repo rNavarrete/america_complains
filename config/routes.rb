@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root "home#index"
+  root "complaints#index"
+
+  get "/search" => "complaints#search"
 
   resources :users
   get "/log-in" => "sessions#new"
@@ -9,6 +11,10 @@ Rails.application.routes.draw do
 
 
   get '/auth/twitter/callback', to: 'sessions#create'
+
+  namespace :admin do
+    get "update_database" => "database#update_data", as: :update_data
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
