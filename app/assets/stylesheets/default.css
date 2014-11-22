@@ -27,6 +27,10 @@ body {
 	overflow-x: hidden;
 }
 
+body > nav{
+  margin-bottom: 0;
+}
+
 a {
 	color: #888;
 	text-decoration: none;
