@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root "home#index"
+  root "complaints#index"
+
+  get "/search" => "complaints#search"
 
   resources :users
   get "/log-in" => "sessions#new"
