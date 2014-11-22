@@ -1,6 +1,7 @@
 class Admin::DatabaseController < Admin::BaseController
-  def update
-    reader = CsvReader.new("csv/Consumer_Complaints.csv")\
+  def update_data
+    reader = CsvReader.new("csv/Consumer_Complaints_Test.csv")
     reader.parse
+    redirect_to root_path
   end
 end

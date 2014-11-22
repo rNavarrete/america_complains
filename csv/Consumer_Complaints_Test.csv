@@ -1,0 +1,6 @@
+Complaint ID,Product,Sub-product,Issue,Sub-issue,State,ZIP code,Submitted via,Date received,Date sent to company,Company,Company response,Timely response?,Consumer disputed?
+1121389,Debt collection,Medical,Disclosure verification of debt,Not given enough info to verify debt,IA,51545,Web,11/18/2014,11/18/2014,Merchants Credit Corporation,Closed with explanation,Yes,
+1121787,Consumer loan,Vehicle loan,Problems when you are unable to pay,,TX,76014,Web,11/18/2014,11/18/2014,Ally Financial Inc.,In progress,Yes,
+1121098,Debt collection,Medical,False statements or representation,Attempted to collect wrong amount,CA,91765,Web,11/18/2014,11/18/2014,"CMRE Financial Services, Inc.",In progress,Yes,
+1121902,Debt collection,,Cont'd attempts collect debt not owed,Debt is not mine,WA,98503,Web,11/18/2014,11/18/2014,First Data Corporation,In progress,Yes,
+1121113,Debt collection,Payday loan,Cont'd attempts collect debt not owed,Debt is not mine,IL,62617,Web,11/18/2014,11/18/2014,"MNE Services, Inc",Closed with explanation,Yes,
