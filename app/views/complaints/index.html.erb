@@ -3,6 +3,8 @@
 <div id="map"></div>
 
 
-<% @results.keys.each do |result| %>
-  <li><%= result %></li>
+<% @results.each do |result| %>
+  <li><%= result[0] %></li>
 <% end %>
+
+  <li><%= @results.count %></li>

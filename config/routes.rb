@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get '/auth/twitter/callback', to: 'sessions#create'
 
   namespace :admin do
-    get "update_database" => "database#update_data", as: :update_data
+    get "update_database" =>   "database#update_data", as: :update_data
+    get "update_businesses" => "database#update_businesses"
   end
 
 
