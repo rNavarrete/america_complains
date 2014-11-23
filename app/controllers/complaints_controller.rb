@@ -1,6 +1,13 @@
 class ComplaintsController < ApplicationController
+
   def index
-    @complaints = Complaint.all
+    client = GooglePlaces::Client.new("AIzaSyCZ5hhE15pCws_eQivuDxuK__G7_fOAPeM")
+    complaints = Complaint.all.limit(10)
+    @results = complaints.collect do |complaint|
+      client.spots_by_query(complaint[:company])
+    end
+    @results
+    raise "omg"
   end
 
   def search

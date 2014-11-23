@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'google_places', require: 'google_places'
 
 
 gem 'yelp', require: 'yelp'
