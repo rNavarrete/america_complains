@@ -44,25 +44,14 @@
           <li>@<%= current_user.name %></li>
         <% end %>
         <% unless current_user %>
-        <div class="login_form" id="login-form">
-          <%= form_tag log_in_path do %>
-            <%= text_field_tag :email, nil, placeholder: "Email" %>
-            <%= password_field_tag :password, nil, placeholder: "Password" %>
-            <%= submit_tag value="Sign in", class: "btn btn-default btn-sm", id: "sigin-button" %>
-          <% end %>
-        </div>
-      <% end %>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+          <div class="login_form" id="login-form", style="display: flex">
+            <%= form_tag log_in_path do %>
+              <%= text_field_tag :email, nil, placeholder: "Email" %>
+              <%= password_field_tag :password, nil, placeholder: "Password" %>
+              <%= submit_tag value="Sign in", class: "btn btn-default btn-sm", id: "sigin-button" %>
+            <% end %>
+          </div>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
