@@ -6,10 +6,9 @@ class Admin::DatabaseController < Admin::BaseController
   end
 
   def update_businesses
-    complaints = Complaint.test_five
+    complaints = Complaint.grouped_by_name
     BusinessUpdater.new(complaints).update
     flash[:notice] = "Business listings successfully updated."
     redirect_to root_path
-
   end
 end
