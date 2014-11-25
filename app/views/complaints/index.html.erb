@@ -1,5 +1,8 @@
-<h1>Homepage</h1>
+<div id="map"></div>
 
-<% @complaints.each do |complaint| %>
-  <li><%= complaint.company %></li>
+
+<% @results.each do |result| %>
+  <li><%= result[0] %></li>
 <% end %>
+
+  <li><%= @results.count %></li>

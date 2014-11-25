@@ -2,16 +2,51 @@
 <html>
 <head>
   <title>SocialMobility</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script type="text/javascript" src="http://hpneo.github.io/gmaps/gmaps.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
-  </head>
+</head>
 <body>
+
+ <%= render partial: "shared/flash_messages", flash: flash %>
  <%= render "shared/navbar" %>
 
-<%= yield %>
+
+ <%= yield %>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    map = new GMaps({
+      div: '#map',
+      lat: 21.74,
+      lng: 56,
+      zoom: 16,
+      height: '900px',
+      width: '100%'
+    });
+  });
+
+
+  GMaps.geolocate({
+  success: function(position) {
+    map.setCenter(position.coords.latitude, position.coords.longitude);
+  },
+  error: function(error) {
+    alert('Geolocation failed: '+error.message);
+  },
+  not_supported: function() {
+    alert("Your browser does not support geolocation");
+  }
+});
+  </script>
 
 </body>
 </html>

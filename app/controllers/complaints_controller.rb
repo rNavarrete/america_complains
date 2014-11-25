@@ -1,6 +1,7 @@
 class ComplaintsController < ApplicationController
+
   def index
-    @complaints = Complaint.all
+    @results = Complaint.test_five
   end
 
   def search

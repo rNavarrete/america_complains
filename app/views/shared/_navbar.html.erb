@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Better Tomorrow</a>
+      <a class="navbar-brand" href="/">Better Tomorrow</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,8 +16,8 @@
       <ul class="nav navbar-nav">
         <% if !current_user.nil? && current_user.admin? %>
           <li><%= link_to "Update Database", admin_update_data_path %></li>
+          <li><%= link_to "Update Businesses", admin_update_businesses_path %></li>
         <% end %>
-        <li><a href="/auth/twitter">Sign in with Twitter</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -36,33 +36,27 @@
         <%= text_field_tag(:query, nil, :placeholder => "search") %>
         <%= submit_tag("Search") %>
       <% end %>
+
       <ul class="nav navbar-nav navbar-right">
         <% unless current_user %>
-          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Register", new_user_path %></li>
+          <li><a href="/auth/twitter">Sign in with Twitter</a></li>
         <% end %>
+
         <% if current_user %>
           <li>@<%= current_user.name %></li>
+          <li><%= link_to "Logout", log_out_path %></li>
         <% end %>
-        <% unless current_user %>
-        <div class="login_form" id="login-form">
-          <%= form_tag log_in_path do %>
-            <%= text_field_tag :email, nil, placeholder: "Email" %>
-            <%= password_field_tag :password, nil, placeholder: "Password" %>
-            <%= submit_tag value="Sign in", class: "btn btn-default btn-sm", id: "sigin-button" %>
-          <% end %>
-        </div>
-      <% end %>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+        <% unless current_user %>
+          <div class="login_form" id="login-form", style="display: flex">
+            <%= form_tag log_in_path do %>
+              <%= text_field_tag :email, nil, placeholder: "Email" %>
+              <%= password_field_tag :password, nil, placeholder: "Password" %>
+              <%= submit_tag value="Sign in", class: "btn btn-default btn-sm", id: "sigin-button" %>
+            <% end %>
+          </div>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

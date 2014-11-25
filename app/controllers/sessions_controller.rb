@@ -13,10 +13,10 @@ class SessionsController < ApplicationController
     else
       if user = User.authenticate(params[:email], params[:password])
         session[:user_id] = user.id
-        flash[:notice] = "You have been logged in."
+        flash[:success] = "You have been logged in."
         redirect_to root_path
       else
-        flash[:alert] = "There was a problem logging you in."
+        flash[:error] = "There was a problem logging you in."
         redirect_to log_in_path
       end
     end
@@ -25,6 +25,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:notice] = "You have been loggged out successfully"
-    redirect_to "/"
+    redirect_to root_path
   end
 end
