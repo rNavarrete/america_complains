@@ -50,6 +50,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'pry'
 end
 
 group :test do
