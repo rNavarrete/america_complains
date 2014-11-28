@@ -9,6 +9,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+gem 'gon', '~> 5.2.3'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -26,6 +27,8 @@ gem 'spring',        group: :development
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'google_places', require: 'google_places'
+gem 'underscore-rails'
+
 
 
 gem 'yelp', require: 'yelp'
@@ -50,6 +53,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'pry'
 end
 
 group :test do

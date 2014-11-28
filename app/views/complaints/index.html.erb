@@ -1,8 +1,40 @@
 <div id="map"></div>
 
 
+
 <% @results.each do |result| %>
   <li><%= result[0] %></li>
 <% end %>
 
-  <li><%= @results.count %></li>
+<script type="text/javascript">
+
+
+
+
+  $(document).ready(function(){
+    map = new GMaps({
+      div: '#map',
+      lat: 39.75,
+      lng: -100,
+      zoom: 5,
+      height: '700px',
+      width: '100%'
+    });
+
+
+
+    for (var i = 0; i < gon.businesses.length; i ++) {
+      map.addMarker({
+        lat: gon.businesses[i].lat,
+        lng: gon.businesses[i].lng,
+        title: gon.businesses[i].name,
+        infoWindow: {
+        content: "<h3 id='infotitle'>" + gon.businesses[i].name + "</h3>"+
+        "<p id='infodescription'>"+ gon.businesses[i].address + "</p>"
+        }
+      });
+    }
+  });
+</script>
+
+
