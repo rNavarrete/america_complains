@@ -1,8 +1,6 @@
 class Complaint < ActiveRecord::Base
   belongs_to :business
   before_create :find_business_id
-  validates :state, format: { with: /\A[CO]+\z/ }
-
 
 
   searchable do

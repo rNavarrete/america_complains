@@ -17,7 +17,10 @@ class BusinessUpdater
     end
     i = 0
     results.each do |place|
-      Business.create!(name: @business_names[i], lat: place.first.lat, lng: place.first.lng, address: place.first.formatted_address)
+      begin
+        Business.create!(name: @business_names[i], lat: place.first.lat, lng: place.first.lng, address: place.first.formatted_address)
+      rescue => e
+      end
       i += 1
     end
   end
