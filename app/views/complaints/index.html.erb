@@ -29,7 +29,7 @@
         lng: gon.businesses[i].lng,
         title: gon.businesses[i].name,
         infoWindow: {
-        content: "<h3 id='infotitle'>" + gon.businesses[i].name + "</h3>"+
+        content: "<a id='infotitle' href=/businesses/" + gon.businesses[i].id + ">" + gon.businesses[i].name + "</h3>"+
         "<p id='infodescription'>"+ gon.businesses[i].address + "</p>"
         }
       });

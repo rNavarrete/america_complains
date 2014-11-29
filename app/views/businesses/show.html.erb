@@ -1,0 +1,10 @@
+
+
+
+
+<div class="container">
+  <h1><%= @business.name %></h1>
+  <h1><% @business.complaints.each do |complaint| %></h1>
+    <h6><%= complaint.product %>|<%= complaint.sub_product %>|<%= complaint.issue %>|<%= complaint.sub_issue %></h6>
+  <% end %>
+</div>

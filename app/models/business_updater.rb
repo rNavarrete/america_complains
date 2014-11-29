@@ -6,7 +6,7 @@ class BusinessUpdater
   end
 
   def update
-    client = GooglePlaces::Client.new("AIzaSyCZ5hhE15pCws_eQivuDxuK__G7_fOAPeM")
+    client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
 
     results = @complaints.map do |complaint|
       begin

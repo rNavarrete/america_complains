@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "complaints#index"
 
   get "/search" => "complaints#search"
+  resources :businesses
 
   resources :users
   get "/log-in" => "sessions#new"
