@@ -1,13 +1,6 @@
 class Complaint < ActiveRecord::Base
   belongs_to :business
   before_create :find_business_id
-  validates :state, format: { with: /\A[CO]+\z/ }
-
-
-
-  searchable do
-    text  :product, :sub_product, :issue, :sub_issue, :company
-  end
 
   def self.test_five
     all.limit(5).group_by do |complaint|

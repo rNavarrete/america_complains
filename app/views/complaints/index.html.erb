@@ -1,40 +1,63 @@
-<div id="map"></div>
-
-
-
-<% @results.each do |result| %>
-  <li><%= result[0] %></li>
-<% end %>
-
-<script type="text/javascript">
-
-
-
-
+<script >
   $(document).ready(function(){
     map = new GMaps({
       div: '#map',
-      lat: 39.75,
-      lng: -100,
-      zoom: 5,
-      height: '700px',
-      width: '100%'
+      lat:  39.738436,
+      lng: -104.984859,
+      height: "1000px",
+      width: "100%",
+      zoom: 12
     });
-
-
-
     for (var i = 0; i < gon.businesses.length; i ++) {
       map.addMarker({
         lat: gon.businesses[i].lat,
         lng: gon.businesses[i].lng,
         title: gon.businesses[i].name,
         infoWindow: {
-        content: "<h3 id='infotitle'>" + gon.businesses[i].name + "</h3>"+
-        "<p id='infodescription'>"+ gon.businesses[i].address + "</p>"
+        content:
+
+
+        "<div role='tabpanel'>" +
+          "<ul class='nav nav-tabs' role='tablist'>" +
+            "<li role='presentation' class='active'><a href='#home' aria-controls='home' role='tab' data-toggle='tab'>Company Details</a></li>" +
+            "<li role='presentation'><a href='#profile' aria-controls='profile' role='tab' data-toggle='tab'>Profile</a></li>" +
+            "<li role='presentation'><a href='#messages' aria-controls='messages' role='tab' data-toggle='tab'>Messages</a></li>" +
+            "<li role='presentation'><a href='#settings' aria-controls='settings' role='tab' data-toggle='tab'>Settings</a></li>" +
+          "</ul>" +
+          "<div class='tab-content'>" +
+            "<div role='tabpanel' class='tab-pane active' id='home'>" + "<a id='infotitle' href=/businesses/" + gon.businesses[i].id + ">" + gon.businesses[i].name + "</h3>" + "<p id='infodescription'>"+ gon.businesses[i].address + "</p>" +
+            "</div>" +
+
+            "<div role='tabpanel' class='tab-pane' id='profile'>...</div>" +
+            "<div role='tabpanel' class='tab-pane' id='messages'>...</div>" +
+            "<div role='tabpanel' class='tab-pane' id='settings'>...</div>" +
+          "</div>" +
+        "</div>"
+
         }
       });
     }
-  });
+
+    $('#geocoding_form').submit(function(e){
+      e.preventDefault();
+        GMaps.geocode({
+          address: $('#address').val().trim(),
+          callback: function(results, status){
+            if(status=='OK'){
+              var latlng = results[0].geometry.location;
+              map.setCenter(latlng.lat(), latlng.lng());
+              map.addMarker({
+                lat: latlng.lat(),
+                lng: latlng.lng()
+              });
+            }
+          }
+        });
+      });
+    });
+  $('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
 </script>
-
-
+<div id="map"></div>

@@ -28,6 +28,7 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'google_places', require: 'google_places'
 gem 'underscore-rails'
+gem 'mechanize'
 
 
 
