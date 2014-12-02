@@ -11,4 +11,8 @@ class Admin::DatabaseController < Admin::BaseController
     flash[:notice] = "Business listings successfully updated."
     redirect_to root_path
   end
+
+  def update_yelp_ids
+    AddYelpID.new(Business.all).add_ids
+  end
 end

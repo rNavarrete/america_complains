@@ -3,6 +3,7 @@ class BusinessUpdater
   def initialize(complaints)
     @complaints = complaints
     @business_names = complaints.collect {|complaint| complaint[0]}
+
   end
 
   def update

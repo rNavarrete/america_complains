@@ -4,6 +4,8 @@
   <title>SocialMobility</title>
   <%= include_gon %>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script type="text/javascript" src="https://hpneo.github.io/gmaps/prettify/prettify.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="http://hpneo.github.io/gmaps/gmaps.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
@@ -11,6 +13,10 @@
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
   <%= csrf_meta_tags %>
+
+
+
+
 </head>
 <body>
 
@@ -21,8 +27,6 @@
 
 
  <%= yield %>
-
-
 
 
 </body>

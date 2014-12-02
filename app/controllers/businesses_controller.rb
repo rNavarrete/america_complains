@@ -2,11 +2,14 @@ require 'yelp'
 class BusinessesController < ApplicationController
 
   def show
-  @business = Business.find(params[:id])
-  coordinates = { latitude: @business.lat, longitude: @business.lng }
-  params = {term: @business.name, limit: 1, category_filter: 'financialservices'}
-  @results = Yelp.client.search(@business.address[-33..-22], params)
-  raise "omg"
+    @business = Business.find(params[:id])
+    params = {term: @business.name, limit: 1}
+    unless @business.yelp_id.nil?
+      begin
+        @result = Yelp.client.business(@business.yelp_id)
+      rescue => e
+      end
+    end
   end
 
   private

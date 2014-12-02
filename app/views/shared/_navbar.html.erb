@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0;">
+<nav class="navbar navbar-fixed-top " role="navigation" style="margin-bottom: 0;" id="navbar">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -17,6 +17,7 @@
         <% if !current_user.nil? && current_user.admin? %>
           <li><%= link_to "Update Database", admin_update_data_path %></li>
           <li><%= link_to "Update Businesses", admin_update_businesses_path %></li>
+          <li><%= link_to "Update Business Yelp IDs", admin_update_yelp_ids_path %></li>
         <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -36,6 +37,13 @@
         <%= text_field_tag(:query, nil, :placeholder => "search") %>
         <%= submit_tag("Search") %>
       <% end %>
+
+      <form method="post" id="geocoding_form" class="navbar-form navbar-left" style ="margin: 10px 0 0 0">
+          <div class="input">
+            <input type="text" id="address" name="address" />
+            <input type="submit" class="btn" value="Search" />
+          </div>
+        </form>
 
       <ul class="nav navbar-nav navbar-right">
         <% unless current_user %>

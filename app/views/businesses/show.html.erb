@@ -1,10 +1,50 @@
-
-
-
-
 <div class="container">
+
+
+<% unless @result.nil? %>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= image_tag "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/2d7ab232224f/developers/yelp_logo_100x50.png" %>
+      <div class="caption well well-sm">
+        <p><%= @result.reviews.first.excerpt %><a href="<%= @result.url %>">Read More</a></p>
+        <p><%= @result.display_phone %></p>
+        <p><%= pluralize(@result.review_count, "review") %></p>
+        <%= image_tag @result.rating_img_url_large %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+
+
+
+
   <h1><%= @business.name %></h1>
-  <h1><% @business.complaints.each do |complaint| %></h1>
-    <h6><%= complaint.product %>|<%= complaint.sub_product %>|<%= complaint.issue %>|<%= complaint.sub_issue %></h6>
-  <% end %>
+  <h4>List of Consumer Complaints Sent to the Government:</h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+          <th>Product</th>
+          <th>Sub Product</th>
+          <th>Issue</th>
+          <th>Sub Issue</th>
+          <th>Date Submitted</th>
+      </tr>
+    </thead>
+    <% @business.complaints.each do |complaint| %>
+    <tbody>
+      <tr>
+        <td><%= complaint.product %></td>
+        <td><%= complaint.sub_product %></td>
+        <td><%= complaint.issue %></td>
+        <td><%= complaint.sub_issue %></td>
+        <td><%= complaint.date_submitted %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>
