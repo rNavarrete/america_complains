@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get "update_database"   =>   "database#update_data", as: :update_data
     get "update_businesses" => "database#update_businesses"
     get "update_yelp_ids"   => "database#update_yelp_ids"
+    get "update_yelp_ids"   => "database#update_yelp_ids"
   end
 
 
