@@ -1,4 +1,5 @@
 require 'yelp_business_id_scraper'
+
 class AddYelpID
   def initialize(businesses)
     @businesses = businesses
