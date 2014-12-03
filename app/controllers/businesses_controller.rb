@@ -3,11 +3,10 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
+
     unless @business.yelp_id.nil?
       begin
         @result = Yelp.client.business(@business.yelp_id)
-      require 'pry'
-      binding.pry
       rescue => e
       end
     end
