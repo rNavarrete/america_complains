@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
   validates :password, confirmation: true
 
-
-
   def encrypt_password
     self.password_salt = BCrypt::Engine.generate_salt
     self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
