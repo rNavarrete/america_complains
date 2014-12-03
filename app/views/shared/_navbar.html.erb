@@ -33,11 +33,6 @@
         </li>
       </ul>
 
-      <%= form_tag(search_path, :method => "get", :class => "navbar-form navbar-left", :style => "margin: 10px 0 0 0") do %>
-        <%= text_field_tag(:query, nil, :placeholder => "search") %>
-        <%= submit_tag("Search") %>
-      <% end %>
-
       <form method="post" id="geocoding_form" class="navbar-form navbar-left" style ="margin: 10px 0 0 0">
           <div class="input">
             <input type="text" id="address" name="address" />
