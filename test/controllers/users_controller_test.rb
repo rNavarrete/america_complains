@@ -12,7 +12,6 @@ class UsersControllerTest < ActionController::TestCase
  def test_it_can_create_a_user
   user_params = { :user => {email: "king@royal.com", password: "password", name: "Rolando"}}
   get(:create, user_params)
-
   assert_equal "Rolando", User.last.name
  end
 
