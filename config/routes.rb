@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root "complaints#index"
 
-  get "/search" => "search#search_for"
   resources :businesses
 
   resources :users
