@@ -11,9 +11,6 @@ class ApplicationController < ActionController::Base
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
   end
 
-
-
-
   def current_user
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
