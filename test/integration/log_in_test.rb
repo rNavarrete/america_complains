@@ -12,7 +12,6 @@ class CanLogInTest < ActionDispatch::IntegrationTest
       fill_in('email', :with => 'king@gmail.com')
       fill_in('password', :with => 'password')
       click_button('Sign in')
-      save_and_open_page
     end
     assert page.has_content?("You have been logged in."), "page should have a welcome message"
   end
