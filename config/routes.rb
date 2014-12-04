@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root "complaints#index"
 
+  resources :complaints
+
   resources :businesses
 
   resources :users
@@ -17,6 +19,13 @@ Rails.application.routes.draw do
     get "update_businesses" => "database#update_businesses"
     get "update_yelp_ids"   => "database#update_yelp_ids"
     get "update_yelp_ids"   => "database#update_yelp_ids"
+  end
+
+
+  namespace :api do
+    namespace :v1 do
+      resources :complaints
+    end
   end
 
 
