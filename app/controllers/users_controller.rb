@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       flash[:notice] = "User Created Successfully."
       redirect_to "/"
       session[:user_id] = user.id
-      SignUpMailer.welcome_email(user).deliver
+      Resque.enqueue(EmailHandler, user.id)
     else
       flash[:alert] = "There was a problem creating your account please try again."
       redirect_to :back

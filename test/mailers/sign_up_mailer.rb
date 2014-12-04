@@ -6,7 +6,6 @@ class SignUpMailerTest < ActionMailer::TestCase
     user = User.create(email: "king@gmail.com", username: "Rolando")
     email = SignUpMailer.welcome_email(user).deliver
     assert_not ActionMailer::Base.deliveries.empty?
-    puts "yea it ran"
 
     # Test the body of the sent email contains what we expect it to
     assert_equal ["maximumquota@gmail.com"], email.from

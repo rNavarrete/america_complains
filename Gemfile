@@ -27,6 +27,7 @@ gem 'spring',        group: :development
 gem 'google_places', require: 'google_places'
 gem 'underscore-rails'
 gem 'mechanize'
+gem 'resque'
 
 
 
