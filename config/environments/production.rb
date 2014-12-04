@@ -2,6 +2,16 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'americacomplains.com',
+  user_name:            'maximumquota',
+  password:             'Godfather100!!',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
   config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -9,6 +19,7 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
+  config.action_mailer.perform_deliveries = true
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
