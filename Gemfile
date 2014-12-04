@@ -56,6 +56,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'minitest-spec-rails'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
