@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Better Tomorrow</a>
+      <a class="navbar-brand" href="/">America Complains</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,15 +28,15 @@
           </div>
         </form>
 
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" style="color:white">
         <% unless current_user %>
           <li><%= link_to "Register", new_user_path %></li>
           <li><a href="/auth/twitter">Sign in with Twitter</a></li>
         <% end %>
 
         <% if current_user %>
-          <li>@<%= current_user.name %></li>
-          <li><%= link_to "Logout", log_out_path %></li>
+          <li style="padding-top:15px">@<%= current_user.name %></li>
+          <li style="color:white"><%= link_to "Logout", log_out_path, {style: "color:white"} %></li>
         <% end %>
 
         <% unless current_user %>
