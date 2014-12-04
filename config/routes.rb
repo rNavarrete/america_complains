@@ -1,3 +1,11 @@
+require 'resque/server'
+# Of course, you need to substitute your application name here, a block
+# like this probably already exists.
+SocialMobility::Application.routes.draw do
+  mount Resque::Server.new, at: "/resque"
+end
+
+
 Rails.application.routes.draw do
 
   root "complaints#index"
