@@ -23,15 +23,15 @@
 
       <form method="post" id="geocoding_form" class="navbar-form navbar-left" style ="margin: 10px 0 0 0">
           <div class="input">
-            <input type="text" id="address" name="address" />
-            <input type="submit" class="btn" value="Search" />
+            <input type="text" id="address" name="address" placeholder="state, city, zipcode"/>
+            <input type="submit" class="btn btn-default btn-sm" value="Search" />
           </div>
         </form>
 
       <ul class="nav navbar-nav navbar-right" style="color:white">
         <% unless current_user %>
-          <li><%= link_to "Register", new_user_path %></li>
-          <li><a href="/auth/twitter">Sign in with Twitter</a></li>
+          <li><%= link_to "Register", new_user_path, {style: "color:white"} %></li>
+          <li><a href="/auth/twitter" style="color:white">Sign in with Twitter</a></li>
         <% end %>
 
         <% if current_user %>
