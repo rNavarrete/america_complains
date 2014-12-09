@@ -1,4 +1,5 @@
 An app that takes government complaint data, maps it using the google maps JavaScript Api and pulls in business reviews from yelp.
 
-Production Site URL: http://104.236.57.246/ \n
+Production Site URL: http://104.236.57.246/
+
 Link to government dataset: http://catalog.data.gov/dataset/consumer-complaint-database#topic=consumer_navigation
